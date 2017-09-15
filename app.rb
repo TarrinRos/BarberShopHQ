@@ -8,10 +8,11 @@ require 'pony'
 require 'sqlite3'
 require 'sinatra/activerecord'
 
+# Database init
 set :database, "sqlite3:barbershop.db"
 
 # создание сущности / add clint entity
-class Client < Activerecord::Base
+class Client < ActiveRecord::Base
 end
 
 get '/' do
