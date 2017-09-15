@@ -1,0 +1,10 @@
+class CreateBarbers < ActiveRecord::Migration[5.1]
+  def change
+    create_table :barbers do |t|
+      t.text :name
+    end
+    Barber.create name: 'Jessie Pinkman'
+    Barber.create name: 'Walter Black'
+    Barber.create name: 'Gus Fring'
+  end
+end
