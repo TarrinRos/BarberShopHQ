@@ -33,6 +33,10 @@ get '/visit' do
   erb :visit
 end
 
+get '/contacts' do
+  erb :contacts
+end
+
 post '/visit' do
   @name = params[:name]
   @phone = params[:phone]
@@ -59,4 +63,28 @@ post '/visit' do
   db.save
 
   erb :after_visit
+end
+
+post '/contacts' do
+  @usrname = params[:usrname]
+  @email = params[:email]
+  @message = params[:message]
+  @after_contacts = "Спасибо #{@name}, что за Ваше обращение"
+
+  # Validating empty input
+  # HASH (with a 'new 1.9 syntax')
+  hh = { usrname: 'Введите имя',
+         email: 'Введите Ваш email',
+         message: 'Напишите что-нибудь' }
+
+  @error = hh.select { |key, _value| params[key] == '' }.values.join(', ')
+  return erb :visit if @error != ''
+  # saving to data_base
+  db = Contact.new
+  db.usrname = @usrname
+  db.email = @email
+  db.message = @message
+  db.save
+
+  erb :after_contacts
 end
