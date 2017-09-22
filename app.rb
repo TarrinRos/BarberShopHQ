@@ -35,6 +35,7 @@ get '/' do
 end
 
 get '/visit' do
+  @db = Client.new
   erb :visit
 end
 
@@ -46,10 +47,14 @@ post '/visit' do
   @after_visit = "Спасибо #{@name}, что Вы к нам записались"
 
   # saving to data_base by the cool way
-  db = Client.new params[:client]
-  db.save
+  @db = Client.new params[:client]
 
-  erb :after_visit
+  if @db.save
+    erb :after_visit
+  else
+    @error = @db.errors.full_messages.first
+    erb :visit
+  end
 end
 
 post '/contacts' do

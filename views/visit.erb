@@ -13,20 +13,19 @@ $(function(){
 </script>
 
 <form action="/visit" method="POST" role="form">
-  <!-- Правильное написание функции для JQuery -->
   <div class="form-group">
     <label>Ваше имя и фамилию </label>
-    <input name="client[name]" type="text" class="form-control" placeholder="Введите Ваше имя и фамилию" value="">
+    <input name="client[name]" type="text" class="form-control" placeholder="Введите Ваше имя и фамилию" value="<%= @db.name %>">
   </div>
 
   <div class="form-group">
     <label>Ваш номер телефона</label>
-    <input name="client[phone]" type="text" class="form-control" placeholder="Введите номер Вашего телефона" value="">
+    <input name="client[phone]" type="text" class="form-control" placeholder="Введите номер Вашего телефона" value="<%= @db.phone %>">
   </div>
 
   <div class="form-group">
     <label>Время Вашего посещения</label>
-    <input id="datetimepicker" name="client[datestamp]" type="text" class="form-control" placeholder="В какое время Вам будет удобно?" value="">
+    <input id="datetimepicker" name="client[datestamp]" type="text" class="form-control" placeholder="В какое время Вам будет удобно?" value="<%= @db.datestamp %>">
   </div>
 
   <div class="form-group">
