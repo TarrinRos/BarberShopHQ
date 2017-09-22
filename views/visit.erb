@@ -31,7 +31,7 @@ $(function(){
 
   <div class="form-group">
     <label>Выберите Вашего мастера</label>
-    <select name="barber_master" class="form-control" id="exampleFormControlSelect1">
+    <select name="client[barber]" class="form-control" id="exampleFormControlSelect1">
 
       <% @barbers.each do |barber| %>
         <option <%= @barber_master == barber.name ? 'selected' : '' %>><%= barber.name %></option>

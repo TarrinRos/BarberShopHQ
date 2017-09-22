@@ -11,8 +11,13 @@ require 'sinatra/activerecord'
 # Database init
 set :database, 'sqlite3:barbershop.db'
 
-# создание сущности / add clint entity
+# создание сущности с валидацией / add clint entity with validation
 class Client < ActiveRecord::Base
+  validates :name, presence: true
+  validates :phone, presence: true
+  validates :datestamp, presence: true
+  validates :barber, presence: true
+  validates :color, presence: true
 end
 
 class Barber < ActiveRecord::Base
@@ -40,7 +45,7 @@ end
 post '/visit' do
   @after_visit = "Спасибо #{@name}, что Вы к нам записались"
 
-  # saving to data_base
+  # saving to data_base by the cool way
   db = Client.new params[:client]
   db.save
 
