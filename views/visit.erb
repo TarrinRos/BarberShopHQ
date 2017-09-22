@@ -16,17 +16,17 @@ $(function(){
   <!-- Правильное написание функции для JQuery -->
   <div class="form-group">
     <label>Ваше имя и фамилию </label>
-    <input name="name" type="text" class="form-control" placeholder="Введите Ваше имя и фамилию" value="<%= @name %>">
+    <input name="client[name]" type="text" class="form-control" placeholder="Введите Ваше имя и фамилию" value="">
   </div>
 
   <div class="form-group">
     <label>Ваш номер телефона</label>
-    <input name="phone" type="text" class="form-control" placeholder="Введите номер Вашего телефона" value="<%= @phone %>">
+    <input name="client[phone]" type="text" class="form-control" placeholder="Введите номер Вашего телефона" value="">
   </div>
 
   <div class="form-group">
     <label>Время Вашего посещения</label>
-    <input id="datetimepicker" name="date_time" type="text" class="form-control" placeholder="В какое время Вам будет удобно?" value="<%= @date_time %>">
+    <input id="datetimepicker" name="client[datestamp]" type="text" class="form-control" placeholder="В какое время Вам будет удобно?" value="">
   </div>
 
   <div class="form-group">
@@ -42,7 +42,7 @@ $(function(){
 
     <div class="form-group">
       <label>Выберете цвет покраски</label>
-      <select name="colorpicker" id="color">
+      <select name="client[color]" id="color">
         <option value="#7bd148">Green</option>
         <option value="#a4bdfc">Blue</option>
         <option value="#5484ed">Bold blue</option>
